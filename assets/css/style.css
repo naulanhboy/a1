@@ -1,0 +1,478 @@
+/* 
+Làm việc theo nguyên tắc:
+1. Từ ngoài vào trong
+2. Từ trên xuống dưới
+3. Tổng quan đến chi tiết
+ */
+/* 
+1. Vị trí
+2. Kích thước(width , height)
+3. Màu sắc
+4. Kiểu dáng 
+ */
+/* Reset CSS */ 
+* 
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html
+{
+    font-family: Arial, Helvetica, sans-serif; /*sans-serif : chủng font bao gồm nhiều font*/
+}
+/* row */
+.clear
+{
+    clear: both; /*clear để giải quyết lỗi float*/
+}
+.text-white
+{
+    color: #fff !important;   /* important: ưu tiên mạnh nhất(ở đây là ưu tiên thuộc tính color) */
+}
+.text-center
+{
+    text-align: center !important;
+}
+
+.row /*row : hàng  */
+{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.col /*col : cột */
+{
+    float: left;
+    padding: 0 8px;
+    
+}
+.col-st
+{
+    width: 100%;
+}
+.col-half
+{
+    width: 50%;
+}
+.col-third
+{
+    width: calc(100%/3);
+}
+/* main */
+#main 
+{
+     
+}
+
+#header 
+{
+    
+    list-style: none;
+    height: 50px;
+    background-color:#BCB8B1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; /*z: trục chiều sâu , nếu header bị lún sâu xuống hoặc nổi lên quá cao thì sẽ bị slider che đi */
+    
+}
+#nav
+{
+    display: inline-block;
+}
+#nav ,  .subnav
+{
+    list-style: none;
+}
+
+#nav > li
+{
+    display: inline-block;
+}
+
+#nav li
+{
+    
+    /* (inline : trên một hàng) để nav theo hàng ngang*/
+    position: relative;
+}
+
+
+#nav li a
+{
+    color : #000;
+    line-height: 50px;
+    text-decoration: none; /*bỏ gạch chân mặc định của link*/
+    padding: 0 25px;
+}  
+
+#nav > li > a
+{
+    text-transform: uppercase;/*viết hoa toàn bộ chữ cái*/
+}
+#nav .subnav li:hover a
+{
+    content: "";
+    display: block;
+    color :#fff;
+    background-color: #463F3A;
+}
+
+#nav > li:hover > a /*ảnh hưởng đến cấp 1 của a trong thẻ li*/
+{ 
+    content: "";
+    display: block;
+    color :#fff;
+    background-color: #463F3A;
+}
+
+#nav .subnav
+{
+    min-width: 160px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    /* display: hiển thị , none: ẩn đi */
+    background-color: #F4F3EE;
+    box-shadow: 0 0 5px #C8BFC7; /* bóng đổ trái phải , trên dưới , độ mờ , màu sắc */
+}
+#nav li:hover .subnav
+{
+    display: block;
+}
+#nav .subnav a
+{
+    line-height: 40px;
+    color: #E0AFA0 ;
+    
+}
+#header .search-btn
+{
+    padding: 0 23px;
+    float: right;
+    
+}
+#header .search-icon
+{
+    line-height: 50px;
+    color : #333;
+}
+#header .search-btn:hover li i,
+#header .search-btn:hover 
+{
+    cursor: pointer;
+    color: #fff;
+    background-color: red;
+}
+#nav .nav-arrow-down
+{
+    font-size: 14px;
+
+}
+#slider 
+{
+    position: relative;
+    margin-top: 50px;
+    padding-top: 50%; /* khi dùng % thì sẽ tính bằng % của chiều ngang của chính nó */
+    background: url('../img/slider/narutobig.jpg') top center / cover no-repeat ;
+
+}
+#slider .text-content
+{
+    color: red;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%); /* lùi lại 1 khoảng bằng 1 nửa content */ 
+    text-align: center; /* căn giữa text */
+    
+}
+
+#slider .text-content .text-heading
+{
+    font-weight: 1000; /*độ dày*/
+    margin-bottom: 10px;
+}
+
+#content 
+{
+    
+    
+}
+#content .content-section
+{
+    width: 1080px;
+    padding: 64px 0;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+    
+}
+#content .section-heading 
+{
+    text-align: center;
+    letter-spacing: 10px; /*khoẳng cách giữa các chữ cái trong 1 chữ */
+    margin-top: 10px;
+}
+#content .section-sub-heading 
+{
+    text-align: center;
+    letter-spacing: 5px; /*khoẳng cách giữa các chữ cái trong 1 chữ */
+    margin-top: 20px;
+    font-style: italic; /* chữ nghiêng */
+    opacity: 0.5; /* độ trong xuất */
+}
+
+#content .about-text
+{
+    margin-top: 25px;
+    text-align: justify; /* căn đều cả hai bên  */
+    line-height: 1.6 ;
+        
+}
+
+
+#content .member-list
+{
+    margin-top: 50px;
+    overflow: hidden; /* khắc phục lỗi float , thẻ cha k ôm được hết thẻ con khi dùng float*/
+    
+}
+
+#content .member-img
+{
+    
+    margin-top: 15px;   
+    border-radius: 10px;
+}
+/* he-section */
+.he-section
+{
+    background-color: #000;
+}
+
+#he-list
+{
+    margin-top: 20px ;
+    list-style: none;
+    background-color: #fff;
+}
+#he-list li
+{
+    border-bottom: 1px solid black;
+    padding: 10px 20px;
+}
+
+#he-list .full
+{
+    margin-left: 30px;
+    padding: 5px 10px;
+    background-color: red;
+}
+#he-list .quantity
+{
+    float: right; /*khi thêm float vào thì  display sẽ là block , set đc wid hei , margin âm */
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    margin-top: -5px;
+}
+
+
+
+.he-section .class
+{
+    display: inline-block;
+    margin-top: 36px;
+    margin-bottom: 0;
+    
+}
+
+.class-content 
+{
+    padding: 16px;
+    background-color: #fff;
+    
+}
+.class-content .lop
+{
+    padding-bottom: 12px;
+}
+.class-content .lop-list
+{
+    padding: 6px 0;
+    margin-bottom: 20px;
+}
+.class-content .lop-mota
+{
+    padding: 6px 0;
+    
+}
+.class-content .lop-btn
+{
+    
+    margin-top: 20px;
+    display: inline-block;
+    padding: 16px 30px;
+    color: #fff;
+    background-color: black;
+    text-decoration: none;
+}
+.lop-list
+{
+    opacity: 0.7;
+}
+.lop-btn:hover
+{
+    background-color: #c6c6c6 ;
+    color: black;
+}
+.class-img
+{
+    width: 100%;
+    display: block;
+}
+.class-img:hover
+{
+    opacity: 0.7;
+}
+
+/*kynang-section*/
+#footer 
+{
+
+}
+
+.modal
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.467);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+    
+    
+    
+}
+.modal.open 
+{
+    display: flex;
+}
+.modal-container
+{
+    width: 900px;
+    max-width: calc(100% - 32px);
+    min-height: 200px;
+    background-color: #fff;
+    position: relative;
+    animation: modal_ani ease .3s;
+    
+    
+
+}
+.modal-close
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    color: #fff;
+    cursor: pointer; /*hiệu ứng bấm chuột*/
+}
+.modal-close:hover
+{
+    opacity: 0.7;
+}
+.modal-header
+{
+    height: 130px;
+    background-color: #009688;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    
+}
+.modal-header i
+{
+    transform: translateY(-20%);
+    margin-right: 8px;
+}
+.modal-body
+{
+    padding: 12px 8px;    
+}
+.modal-label
+{
+    display: block;
+    margin-bottom: 12px;
+}
+.modal-input
+{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(161, 161, 161);
+    margin-bottom: 28px;
+}
+.modal-body #modal-btn
+{
+    width: 100%;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #009688;
+    color: #fff;
+}
+#modal-btn:hover
+{
+    color: rgb(238, 238, 75);
+    background-color: #333;
+}
+
+.modal-footer
+{
+    padding: 16px;
+    text-align: right;
+
+    
+}
+.modal-help a
+{
+    text-decoration: none;
+    color: #000;
+}
+.contact
+{
+    margin-top: 30px;
+}
+.contact-input1
+{
+    padding: 10px 16px;
+}
+.contact-input2
+{
+    padding: 10px 16px;
+}
+
+@keyframes modal_ani
+{
+    from
+    {
+        transform: translateY(-100px);
+    }
+    to
+    {   
+        transform: translateY(0);
+    }
+}
